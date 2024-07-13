@@ -29,6 +29,7 @@ class Socket():
         enc = data.encode('utf-8')
         self.socket.send(enc)
 
+    # handle on client
     def on_client(self, con, address):
         # read 1024 byte
         data = con.recv(1024)
