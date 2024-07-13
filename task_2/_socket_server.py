@@ -59,5 +59,8 @@ class SocketServer():
                 self.subscribers.append(con)
         
             # handle client
-            client_handler = threading.Thread(target=self.on_client, args=(con, address, role))
-            client_handler.start()
+            thread = threading.Thread(target=self.on_client, args=(con, address, role))
+            # daemon is true to make sure all processes stop when program exits
+            thread.daemon = True
+            # start the thread
+            thread.start()
