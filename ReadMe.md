@@ -29,3 +29,23 @@ py task_2/server.py 5000
 py task_2/client.py 127.0.0.1 5000 PUBLISHER
 py task_2/client.py 127.0.0.1 5000 SUBSCRIBER
 ```
+
+## Task 3: Publishers and Subscribers Filtered on Topics/Subjects
+
+1. Start the Server by passing the PORT as a command line argument.
+
+```bash
+py task_3/server.py 5000
+```
+
+2. Start Clients to connect with the server by passing Server IP and Server PORT as command line arguments.
+
+```bash
+py task_3/client.py 127.0.0.1 5000 PUBLISHER TOPIC_A
+py task_3/client.py 127.0.0.1 5000 SUBSCRIBER TOPIC_A
+```
+
+```bash
+py task_3/client.py 127.0.0.1 5000 PUBLISHER TOPIC_B
+py task_3/client.py 127.0.0.1 5000 SUBSCRIBER TOPIC_B
+```
