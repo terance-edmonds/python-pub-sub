@@ -17,7 +17,7 @@ class SocketServer():
         # start listening
         self.socket.listen(5)
 
-        print(f"Socket initiated on {self.ip}:{self.port}")
+        print(f"\33[35m[Socket initiated on]\033[0m \33[33m[{self.ip}:{self.port}]\033[0m")
 
         # start listening to clients
         self.listen()
@@ -37,7 +37,7 @@ class SocketServer():
                 if role == 'SUBSCRIBER':
                     self.subscribers.remove(con)
 
-                print(f"Client disconnected: {address}")
+                print(f"\33[91m[Client disconnected:]\033[0m \33[33m \33[33m[{address}]\033[0m")
                 con.close()
                 break
             
@@ -45,14 +45,14 @@ class SocketServer():
             for subscriber in self.subscribers:
                 subscriber.send(data)
 
-            print(f"Client message received from {address}")
+            print(f"\33[34m[Client message received from]\033[0m \33[33m[{address}]\033[0m")
 
     # start listening to clients
     def listen(self):
         while True:
             # establish a connection with server
             con, address = self.socket.accept()
-            print(f"Client connected: {address}")
+            print(f"\33[32m[Client connected:]\033[0m \33[33m[{address}\033[0m")
             
             role = con.recv(1024).decode('utf-8')
             if role == 'SUBSCRIBER':
