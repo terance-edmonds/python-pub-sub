@@ -11,7 +11,7 @@ if __name__ == "__main__":
     
     while True:
         # get user message
-        msg = input("Enter message: ")
+        msg = input("\33[36m[Enter message:]\033[0m ")
 
         if(msg == 'terminate'):
             socket.close()
